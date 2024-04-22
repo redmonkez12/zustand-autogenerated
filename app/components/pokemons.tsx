@@ -24,6 +24,7 @@ const defaultPokemons: Character[] = [
 export function Pokemons() {
     const pokemons = useCharacters.use.pokemons();
     const addPokemon = useCharacters.use.addPokemon();
+    const selectCharacter = useCharacters.use.selectCharacter();
 
     function addRandomPokemon() {
         const randomIndex = Math.floor(Math.random() * defaultPokemons.length);
@@ -47,6 +48,8 @@ export function Pokemons() {
                         </CardHeader>
                         <CardContent>
                             <Image src={pokemon.imageUrl} alt={pokemon.name} width={120} height={120}/>
+
+                            <Button size="sm" className="mt-4 w-full" onClick={() => selectCharacter(pokemon)}>Choose</Button>
                         </CardContent>
                     </Card>
                 ))}

@@ -24,6 +24,7 @@ const defaultDigimons: Character[] = [
 export function Digimons() {
     const digimons = useCharacters.use.digimons();
     const addDigimon = useCharacters.use.addDigimon();
+    const selectCharacter = useCharacters.use.selectCharacter();
 
     function addRandomDigimon() {
         const randomIndex = Math.floor(Math.random() * defaultDigimons.length);
@@ -47,6 +48,8 @@ export function Digimons() {
                         </CardHeader>
                         <CardContent>
                             <Image src={digimon.imageUrl} alt={digimon.name} width={120} height={120} />
+
+                            <Button size="sm" className="mt-4 w-full" onClick={() => selectCharacter(digimon)}>Choose</Button>
                         </CardContent>
                     </Card>
                 ))}
